@@ -26,7 +26,12 @@ class Person {
     role: Role;
 }
 
-enum Role {
+class Role {
+    type: RoleType;
+    description: string
+}
+
+enum RoleType {
     ADMIN,
     SUBSCRIBER,
     EMPLOYEE = 2
@@ -48,5 +53,16 @@ class Admin extends Person {
     constructor(public name: string, public role: Role) {
         super(name);
     }
+}
+
+enum ContactType {
+    EMAIL,
+    PHONE,
+    FAX
+}
+
+class Contact {
+    constructor(public name: string, public email: string, public phone: string) {}
+    type: ContactType;
 }
 
