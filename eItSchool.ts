@@ -124,8 +124,16 @@ class Project extends EducationalResources {
 
 class Exam extends EducationalResources {
     type: ExamType;
+    jury: Employee[];
+    relatedCourses: Course[];
+    student: Subscriber;
+    isPassed: boolean
     constructor(name: string) {
         super(name);
+    }
+
+    public pass() {
+        this.isPassed = true;
     }
 }
 
