@@ -66,3 +66,33 @@ class Contact {
     type: ContactType;
 }
 
+abstract class EducationaleResources {
+
+}
+
+class Video extends EducationaleResources {
+    type: VideoType
+}
+
+enum VideoType {
+    registered,
+    live = 1
+}
+
+class Homework extends EducationaleResources {
+
+}
+
+class Project extends EducationaleResources {
+
+}
+
+class Exam extends EducationaleResources {
+    type: ExamType;
+}
+
+enum ExamType {
+    White,
+    Final = 1
+}
+
