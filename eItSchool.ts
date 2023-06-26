@@ -66,11 +66,11 @@ class Contact {
     type: ContactType;
 }
 
-abstract class EducationaleResources {
+abstract class EducationalResources {
 
 }
 
-class Video extends EducationaleResources {
+class Video extends EducationalResources {
     type: VideoType
 }
 
@@ -79,15 +79,15 @@ enum VideoType {
     live = 1
 }
 
-class Homework extends EducationaleResources {
+class Homework extends EducationalResources {
 
 }
 
-class Project extends EducationaleResources {
+class Project extends EducationalResources {
 
 }
 
-class Exam extends EducationaleResources {
+class Exam extends EducationalResources {
     type: ExamType;
 }
 
