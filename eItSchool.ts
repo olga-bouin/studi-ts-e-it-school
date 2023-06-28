@@ -47,12 +47,32 @@ class Person {
 class Role {
     type: RoleType;
     description: string
+
+    constructor(type: RoleType = RoleType.SUBSCRIBER) {
+        this.type = type;
+    }
+
+    public setRole(role: RoleType) {
+        this.type = role;
+    }
+
+    public getRole() {
+        return this.type;
+    }
+
+    public getRoleDescription() {
+        return this.description;
+    }
+
+    public setRoleDescription(description: string) {
+        this.description = description;
+    }
 }
 
 enum RoleType {
     ADMIN,
     SUBSCRIBER,
-    EMPLOYEE = 2
+    EMPLOYEE
 }
 
 class Employee extends Person {
@@ -127,7 +147,7 @@ class Exam extends EducationalResources {
     jury: Employee[];
     relatedCourses: Course[];
     student: Subscriber;
-    isPassed: boolean
+    isPassed: boolean;
     constructor(name: string) {
         super(name);
     }
@@ -142,3 +162,58 @@ enum ExamType {
     Final = 1
 }
 
+class Book extends EducationalResources {
+
+    constructor(name: string) {
+        super(name);
+    }
+}
+
+
+let training1;
+training1 = new Training('Angular');
+training1.type = TrainingType.Frontend;
+training1.courses = [];
+training1.courses.push(new Course('Angular', TrainingType.Frontend, new Employee('Ala', new Role(RoleType.EMPLOYEE))));
+
+let training2;
+training2 = new Training('NodeJS');
+training2.type = TrainingType.Backend;
+training2.courses = [];
+training2.courses.push(new Course('NodeJS', TrainingType.Backend, new Employee('Ala', new Role(RoleType.EMPLOYEE))));
+training2.courses.push(new Course('Express', TrainingType.Backend, new Employee('Ala', new Role(RoleType.EMPLOYEE))));
+training2.courses.push(new Course('MongoDB', TrainingType.Backend, new Employee('Ala', new Role(RoleType.EMPLOYEE))));
+training2.courses.push(new Course('Mongoose', TrainingType.Backend, new Employee('Ala', new Role(RoleType.EMPLOYEE))));
+training2.courses.push(new Course('Sequelize', TrainingType.Backend, new Employee('Ala', new Role(RoleType.EMPLOYEE))));
+training2.courses.push(new Course('MySQL', TrainingType.Backend, new Employee('Ala', new Role(RoleType.EMPLOYEE))));
+training2.courses.push(new Course('PostgreSQL', TrainingType.Backend, new Employee('Ala', new Role(RoleType.EMPLOYEE))));
+training2.courses.push(new Course('Express', TrainingType.Backend, new Employee('Ala', new Role(RoleType.EMPLOYEE))));
+
+let training3;
+training3 = new Training('DevOps');
+training3.type = TrainingType.DevOps;
+training3.courses = [];
+training3.courses.push(new Course('Docker', TrainingType.DevOps, new Employee('Ala', new Role(RoleType.EMPLOYEE))));
+training3.courses.push(new Course('Kubernetes', TrainingType.DevOps, new Employee('Ala', new Role(RoleType.EMPLOYEE))));
+training3.courses.push(new Course('Jenkins', TrainingType.DevOps, new Employee('Ala', new Role(RoleType.EMPLOYEE))));
+training3.courses.push(new Course('Ansible', TrainingType.DevOps, new Employee('Ala', new Role(RoleType.EMPLOYEE))));
+training3.courses.push(new Course('Terraform', TrainingType.DevOps, new Employee('Ala', new Role(RoleType.EMPLOYEE))));
+training3.courses.push(new Course('AWS', TrainingType.DevOps, new Employee('Ala', new Role(RoleType.EMPLOYEE))));
+training3.courses.push(new Course('GCP', TrainingType.DevOps, new Employee('Ala', new Role(RoleType.EMPLOYEE))));
+training3.courses.push(new Course('Azure', TrainingType.DevOps, new Employee('Ala', new Role(RoleType.EMPLOYEE))));
+training3.courses.push(new Course('Git', TrainingType.DevOps, new Employee('Ala', new Role(RoleType.EMPLOYEE))));
+
+let school;
+school = new School('IT School');
+school.trainings = [];
+school.trainings.push(training1);
+school.trainings.push(training2);
+school.trainings.push(training3);
+
+let employee1;
+employee1 = new Employee('Ala', new Role(RoleType.EMPLOYEE));
+employee1.role.setRoleDescription('Frontend Developer');
+employee1.role.setRole(RoleType.EMPLOYEE);
+employee1.fName = 'Ala';
+employee1.lName = 'Atrash';
+employee1.bDate = new Date('1990-01-01');
